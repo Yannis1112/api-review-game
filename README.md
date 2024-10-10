@@ -1,3 +1,5 @@
+jdelcuserrobert@okteo.fr
+
 ## Dépendences
 
 `pnpm install`
