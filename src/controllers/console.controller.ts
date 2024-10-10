@@ -15,7 +15,6 @@ export class ConsoleController extends Controller {
   // Récupère une console par ID
   @Get("{id}")
   public async getConsoleById(@Path() id: number): Promise<ConsoleDTO | null> {
-    notFound(id.toString())
     return consoleService.getConsoleById(id);
   }
 
@@ -41,7 +40,6 @@ export class ConsoleController extends Controller {
     @Body() requestBody: ConsoleDTO
   ): Promise<ConsoleDTO | null> {
     const { name, manufacturer } = requestBody;
-    notFound(id.toString())
     return consoleService.updateConsole(id, name, manufacturer);
   }
 }
