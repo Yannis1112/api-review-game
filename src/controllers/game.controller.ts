@@ -30,7 +30,7 @@ export class GameController extends Controller {
 
   // Met à jour une console par ID
   @Patch("{id}")
-  public async updateConsole(
+  public async updateGame(
     @Path() id: number,
     @Body() requestBody: GameDTO
   ): Promise<GameDTO | null> {
