@@ -70,6 +70,14 @@ export class GameService {
     }
     notFound(id.toString());
   }
+
+  public async getReviewsByGameId(id: number): Promise<Review[]> {
+    const game = await Game.findByPk(id);
+    if (!game) {
+      notFound(id.toString());
+    }
+    return Review.findAll({ where: { game_id: id } });
+  }
 }
 
 export const gameService = new GameService();

@@ -23,6 +23,8 @@ export class ConsoleService {
     }
   }
 
+
+
   // Crée une nouvelle console
   public async createConsole(
     name: string,
@@ -61,6 +63,14 @@ export class ConsoleService {
       return console;
     }
     notFound(id.toString());
+  }
+
+  public async getGamesByConsoleId(id: number): Promise<Game[]> {
+    const console = await Console.findByPk(id);
+    if (!console) {
+      notFound(id.toString());
+    }
+    return Game.findAll({ where: { console_id: id } });
   }
 }
 

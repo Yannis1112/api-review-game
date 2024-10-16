@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Delete, Route, Path, Body, Tags, Patch } from "tsoa";
 import { GameDTO } from "../dto/game.dto";
 import { gameService } from "../services/game.service";
+import { ReviewDTO } from "../dto/review.dto";
 
 @Route("games")
 @Tags("Games")
@@ -36,5 +37,10 @@ export class GameController extends Controller {
   ): Promise<GameDTO | null> {
     const { title, console_id } = requestBody;
     return gameService.updateGame(id, title, console_id);
+  }
+
+  @Get("{id}/reviews")
+  public async getGamesByConsoleId(@Path() id: number): Promise<ReviewDTO[]> {
+    return gameService.getReviewsByGameId(id);
   }
 }

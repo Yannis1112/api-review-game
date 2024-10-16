@@ -408,6 +408,41 @@
 				}
 			}
 		},
+		"/games/{id}/reviews": {
+			"get": {
+				"operationId": "GetGamesByConsoleId",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ReviewDTO"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Games"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
 		"/consoles": {
 			"get": {
 				"operationId": "GetAllConsole",
@@ -566,6 +601,41 @@
 						}
 					}
 				}
+			}
+		},
+		"/consoles/{id}/games": {
+			"get": {
+				"operationId": "GetGamesByConsoleId",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/GameDTO"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Consoles"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
 			}
 		}
 	},
