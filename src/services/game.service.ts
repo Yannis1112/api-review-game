@@ -39,7 +39,17 @@ export class GameService {
   public async deleteGame(id: number): Promise<void> {
     const game = await Game.findByPk(id);
     if (game) {
-      game.destroy();
+
+      const games = await Game.findAll({ where: { console_id: id } });
+      for (const game of games) {
+        const reviews = await Review.findAll({ where: { game_id: game.id } });
+        if (reviews.length > 0) {
+          ReviewFound("Reviews");
+        }
+      }
+      await console.destroy();
+    } else {
+      notFound(id.toString());
     }
   }
 

@@ -12,6 +12,12 @@ export class ReviewService {
         {
           model: Game,
           as: "game",
+          include: [
+            {
+              model: Console,
+              as: "console"
+            }
+          ]
         },
       ],
     });

@@ -15,3 +15,9 @@ export function notFoundGame(name: string): never {
   (error as any).status = 404;
   throw error;
 }
+
+export function notFoundReview(name: string): never {
+  const error = new Error("Review number " + name + " not found");
+  (error as any).status = 404;
+  throw error;
+}
