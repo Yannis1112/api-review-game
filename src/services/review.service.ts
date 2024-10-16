@@ -1,6 +1,5 @@
-import { GameDTO } from "../dto/game.dto";
 import { ReviewDTO } from "../dto/review.dto";
-import { notFound, notFoundConsole, notFoundGame } from "../error/NotFoundError";
+import { notFound, notFoundGame } from "../error/NotFoundError";
 import { Console } from "../models/console.model";
 import { Game } from "../models/game.model";
 import { Review } from "../models/review.model";

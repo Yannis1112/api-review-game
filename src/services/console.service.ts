@@ -1,8 +1,6 @@
-import { notFound, notFoundGame, notFoundReview } from "../error/NotFoundError";
+import { notFound } from "../error/NotFoundError";
 import { Console } from "../models/console.model";
-import { gameService } from "./game.service";
 import { Game } from "../models/game.model";
-import { reviewService } from "./review.service";
 import { ReviewFound } from "../error/ExistingError";
 import { Review } from "../models/review.model";
 
